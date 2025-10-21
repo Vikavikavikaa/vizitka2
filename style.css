@@ -1,0 +1,785 @@
+:root {
+    /* Цветовая схема - минимум 5 цветов */
+    --sliva: #dda0dd;
+    --pinkfi: #ee82ee;
+    --purpur: #8b008b;
+    --lavander: #e6e6fa;
+    --fuxi: #ff00ff;
+    --text-light: #FFFFFF;
+    --border-light: rgba(255, 255, 255, 0.2);}
+    
+    /* Размеры */
+    --container-width: 1200px;
+    --spacing-unit: 8px;}
+    /* Для всех параграфов */
+   
+/* Эффект свечения для текста */
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 
+            0 0 5px var(--pinkfi),
+            0 0 10px var(--pinkfi),
+            0 0 15px var(--fuxi);
+    }
+    50% {
+        text-shadow: 
+            0 0 10px var(--pinkfi),
+            0 0 20px var(--pinkfi),
+            0 0 30px var(--fuxi);
+    }
+}
+/* === ШАПКА САЙТА === */
+.movie-header {
+    text-align: center;
+    padding: 40px 0;
+    background: linear-gradient(135deg, var(--sliva) 0%, var(--pinkfi) 100%);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Контейнер для сердечек */
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Отдельные сердечки */
+.heart {
+    position: absolute;
+    color: var(--fuxi);
+    font-size: 20px;
+    opacity: 0.7;
+    animation: fall-hearts 6s linear infinite;
+}
+
+/* Сердечки с разными задержками и позициями */
+.heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+.heart:nth-child(3) { left: 30%; animation-delay: 2s; }
+.heart:nth-child(4) { left: 40%; animation-delay: 3s; }
+.heart:nth-child(5) { left: 50%; animation-delay: 4s; }
+.heart:nth-child(6) { left: 60%; animation-delay: 5s; }
+.heart:nth-child(7) { left: 70%; animation-delay: 1.5s; }
+.heart:nth-child(8) { left: 80%; animation-delay: 2.5s; }
+.heart:nth-child(9) { left: 90%; animation-delay: 3.5s; }
+.heart:nth-child(10) { left: 15%; animation-delay: 4.5s; }
+
+/* Анимация падения сердечек */
+@keyframes fall-hearts {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(500px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Заголовок */
+.movie-header h1 {
+    font-size: 2.5em;
+    color: var(--lavander);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    animation: glow 2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 10px var(--fuxi);
+}
+
+/* Свечение заголовка */
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 10px var(--fuxi), 0 0 20px var(--purpur);
+    }
+    50% {
+        text-shadow: 0 0 15px var(--fuxi), 0 0 30px var(--purpur), 0 0 40px var(--pinkfi);
+    }
+}
+
+/* Навигация */
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    list-style: none; /* Убираем черные точки */
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    margin: 0; /* Убираем отступы у пунктов списка */
+}
+
+.main-nav a {
+    display: inline-block;
+    color: var(--pinkfi);
+    text-decoration: none;
+    padding: 12px 25px;
+    border: 2px solid var(--fuxi);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 16px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.main-nav a:hover {
+    background: var(--fuxi);
+    color: var(--text-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 0, 255, 0.5);
+    border-color: var(--fuxi);
+}
+
+.main-nav a.active {
+    background: var(--purpur);
+    color: var(--text-light);
+    border-color: var(--fuxi);
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+}
+
+/* Стили для остальных секций */
+section {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: var(--purpur);
+    border-bottom: 2px solid var(--pinkfi);
+    padding-bottom: 10px;
+}
+/* Дополнительные стили для навигации вверху */
+header nav {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--lavander);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(139, 107, 171, 0.3);
+}
+
+header nav a {
+    color: var(--purpur);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--fuxi);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Стили для изображения */
+img {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 3px solid var(--pinkfi);
+}
+
+/* Стили для списка интересов */
+ul {
+    list-style: none; /* Убираем стандартные маркеры */
+    padding: 0;
+}
+
+ul li {
+    padding: 8px 0;
+    padding-left: 30px;
+    position: relative;
+}
+
+ul li:before {
+    content: "❤️"; /* Ставим сердечки вместо точек */
+    color: var(--fuxi);
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background:var(--sliva);
+    min-height: 100vh;
+}
+.purple-title {
+    color: var(--purpur);
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: purple-glow 2s ease-in-out infinite;
+    border-bottom: 3px solid var(--lavander);
+    padding-bottom: 10px;
+}
+/*стили для таблицы */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid var(--purpur);
+}
+
+.styled-table th {
+    background: linear-gradient(135deg, var(--purpur) 0%, var(--pinkfi) 100%);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border-right: 1px solid rgba(255,255,255,0.3); /* Граница между заголовками */
+}
+
+.styled-table th:last-child {
+    border-right: none; /* Убираем границу у последнего заголовка */
+}
+
+.styled-table td {
+    padding: 12px 15px;
+    border-bottom: 2px solid var(--lavander); /* Более толстые горизонтальные линии */
+    border-right: 1px solid var(--lavander); /* Вертикальные линии между ячейками */
+    color: #333;
+}
+
+.styled-table td:last-child {
+    border-right: none; /* Убираем границу у последней ячейки в строке */
+}
+
+.styled-table tr:last-child td {
+    border-bottom: none; /* Убираем границу у последней строки */
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: rgba(230, 230, 250, 0.2);
+}
+
+.styled-table tr:hover {
+    background-color: rgba(255, 0, 255, 0.1);
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+}
+
+/* Стили для fancy версии с сердечками */
+.styled-table.fancy th {
+    background: var(--sliva);
+    position: relative;
+    border-right: 1px solid var(--pinkfi);
+}
+
+.styled-table.fancy th:before {
+    content: "❤️";
+    margin-right: 8px;
+    color: var(--fuxi);
+}
+/* Стили для соцсетей с сердечками */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--purpur) 0%, var(--pinkfi) 100%);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    min-width: 150px;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+}
+
+.social-link:before {
+    content: "❤️";
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 0, 255, 0.5);
+    background: linear-gradient(135deg, var(--fuxi) 0%, var(--purpur) 100%);
+    border: 2px solid var(--lavander);
+}
+
+/* Для мобильных */
+@media (max-width: 768px) {
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-link {
+        min-width: 200px;
+    }
+}
+/* Стили для формы */
+#мнение {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin: 40px 0;
+}
+
+#мнение form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#мнение div {
+    margin-bottom: 20px;
+}
+
+#мнение label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--purpur);
+    font-weight: 600;
+}
+
+#мнение input[type="text"],
+#мнение input[type="email"],
+#мнение select,
+#мнение textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--lavander);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+    box-sizing: border-box;
+}
+
+#мнение input[type="text"]:focus,
+#мнение input[type="email"]:focus,
+#мнение select:focus,
+#мнение textarea:focus {
+    outline: none;
+    border-color: var(--fuxi);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+#мнение textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: Arial, sans-serif;
+}
+
+/* Кнопка отправки */
+#мнение button[type="submit"] {
+    background: linear-gradient(135deg, var(--purpur) 0%, var(--pinkfi) 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 30px auto 0;
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+}
+
+#мнение button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 0, 255, 0.5);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    #мнение {
+        padding: 20px 15px;
+        margin: 20px 0;
+    }
+    
+    #мнение button[type="submit"] {
+        width: 100%;
+        padding: 15px 20px;
+    }
+}
+/* === ФУТЕР === */
+.site-footer {
+    margin-top: 50px;
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid var(--pinkfi);
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(0, 255, 65, 0.05) 100%
+    );
+}
+
+.site-footer p {
+    color: var(--fuxi);
+    font-size: 0.9em;
+}
+.footer-link {   
+     color: var(--lavander); 
+     text-decoration: none;
+     padding: 8px 20px; 
+     border: 2px solid transparent;
+     border-radius: 25px; 
+     background: rgba(255, 255, 255, 0.1); 
+     transition: all 0.3s ease; 
+     font-weight: 600; 
+     display: inline-block; margin: 10px; }
+.footer-link:hover { color: white; 
+    background: var(--fuxi); 
+    border-color: var(--pinkfi); 
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    transform: translateY(-2px); }
+
+    /* Карточка */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border: 2px solid var(--lavander);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(255, 0, 255, 0.2);
+}
+
+.card-title {
+    color: var(--purpur);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* Аккордеон на CSS */
+.accordion-checkbox {
+    display: none;
+}
+
+.accordion-item {
+    background: white;
+    border: 2px solid var(--lavander);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    display: block;
+    background: var(--sliva);
+    color: white;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.accordion-header:hover {
+    background: var(--fuxi);
+}
+
+.accordion-header::after {
+    content: "▼";
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Магия аккордеона */
+.accordion-checkbox:checked ~ .accordion-content {
+    padding: 20px;
+    max-height: 1000px;
+}
+
+.accordion-checkbox:checked ~ .accordion-header::after {
+    transform: rotate(180deg);
+}
+
+.accordion-checkbox:checked ~ .accordion-header {
+    background: var(--fuxi);
+}
+
+/* Стили для алерта про Кирилла */
+.alert-kirill {
+    padding: 20px 25px;
+    border-radius: 15px;
+    margin: 20px 0;
+    background: linear-gradient(135deg, var(--fuxi) 0%, var(--purpur) 100%);
+    color: white;
+    box-shadow: 0 4px 20px rgba(255, 0, 255, 0.3);
+    position: relative;
+    border: 3px solid var(--lavander);
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+}
+
+.alert-kirill::before {
+    content: "❤️";
+    margin-right: 15px;
+    font-size: 24px;
+    filter: none; /* Оставляем оригинальный цвет эмодзи */
+}
+
+/* Анимация мигания */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.alert-kirill {
+    animation: slideIn 0.3s ease-out, blink 2s ease-in-out infinite;
+}
+/* === АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ === */
+
+@media (max-width: 768px) {
+    /* Общие стили */
+    body {
+        padding: 10px;
+    }
+    
+    /* Шапка */
+    .movie-header {
+        padding: 20px 0;
+        margin-bottom: 20px;
+    }
+    
+    .movie-header h1 {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+    
+    /* Навигация в шапке */
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .main-nav a {
+        min-width: auto;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    /* Секции */
+    section {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    /* Заголовки */
+    h2 {
+        font-size: 1.4em;
+    }
+    
+    .purple-title {
+        font-size: 1.8em;
+    }
+    
+    /* Изображения */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Таблицы */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .styled-table {
+        font-size: 14px;
+        min-width: 500px;
+    }
+    
+    .styled-table th,
+    .styled-table td {
+        padding: 8px 10px;
+    }
+    
+    /* Соцсети */
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .social-link {
+        min-width: 200px;
+        padding: 10px 20px;
+    }
+    
+    /* Форма */
+    #мнение {
+        padding: 15px;
+        margin: 20px 0;
+    }
+    
+    #мнение input[type="text"],
+    #мнение input[type="email"],
+    #мнение select,
+    #мнение textarea {
+        padding: 10px 12px;
+        font-size: 16px; /* Увеличиваем для удобства на мобильных */
+    }
+    
+    #мнение button[type="submit"] {
+        width: 100%;
+        padding: 12px 20px;
+    }
+    
+    /* Футер */
+    .site-footer {
+        padding: 20px 15px;
+        margin-top: 30px;
+    }
+    
+    /* Карточки */
+    .card {
+        padding: 15px;
+    }
+    
+    .card-title {
+        font-size: 1.3em;
+    }
+    
+    /* Аккордеон */
+    .accordion-header {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .accordion-header::after {
+        right: 15px;
+    }
+    
+    /* Алерт */
+    .alert-kirill {
+        padding: 15px 20px;
+        font-size: 16px;
+        margin: 15px 0;
+    }
+    
+    .alert-kirill::before {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
+    /* Верхняя навигация */
+    header nav {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    
+    header nav a {
+        display: block;
+        margin: 5px 0;
+        padding: 8px 12px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .movie-header h1 {
+        font-size: 1.5em;
+    }
+    
+    .purple-title {
+        font-size: 1.5em;
+    }
+    
+    section {
+        padding: 10px;
+    }
+    
+    .main-nav a {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .social-link {
+        min-width: 180px;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    #мнение {
+        padding: 10px;
+    }
+}
+
+/* Портретная ориентация */
+@media (max-width: 768px) and (orientation: portrait) {
+    .heart {
+        font-size: 16px;
+    }
+}
+
+/* Ландшафтная ориентация */
+@media (max-width: 768px) and (orientation: landscape) {
+    .movie-header {
+        padding: 15px 0;
+    }
+    
+    .main-nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/* Отключаем анимации для пользователей, которые их предпочитают не использовать */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
